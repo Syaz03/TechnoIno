@@ -239,6 +239,15 @@
   }
   .comp-item:hover { background: var(--surface-hover); }
   .comp-icon { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  .comp-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+    display: block;
+    background: #1a1a1a;
+  }
   .comp-name { font-weight: 500; font-size: 0.9rem; letter-spacing: 0.01em; }
   .comp-desc { font-size: 0.78rem; color: var(--text-dim); font-weight: 300; line-height: 1.5; }
 
@@ -363,37 +372,37 @@
     <p class="section-desc">Every component you need to start experimenting and building your first circuits.</p>
     <div class="components-grid">
       <div class="comp-item">
-        <div class="comp-icon">🧠</div>
+        <img src="images/arduinoUno.jpeg" alt="Arduino UNO" class="comp-img" />
         <div class="comp-name">Arduino UNO</div>
         <div class="comp-desc">The main microcontroller board &mdash; your project's brain.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🔌</div>
+        <img src="images/kit.jpeg" alt="USB Cable" class="comp-img" />
         <div class="comp-name">USB Cable</div>
         <div class="comp-desc">Connect to your laptop to upload code via the Arduino IDE.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🟫</div>
+        <img src="images/breadBoard.jpeg" alt="Breadboard" class="comp-img" />
         <div class="comp-name">Breadboard</div>
         <div class="comp-desc">Prototype circuits without soldering &mdash; plug and play.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🧵</div>
+        <img src="images/jumperWires.jpeg" alt="Jumper Wires" class="comp-img" />
         <div class="comp-name">Jumper Wires</div>
         <div class="comp-desc">Connect components on the breadboard with ease.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🔋</div>
+        <img src="images/batterySnapConnector.jpeg" alt="9V Battery Snap Connector" class="comp-img" />
         <div class="comp-name">9V Battery Snap</div>
         <div class="comp-desc">Power your project untethered from your PC.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">💡</div>
+        <img src="images/leds.jpeg" alt="LEDs" class="comp-img" />
         <div class="comp-name">LEDs</div>
         <div class="comp-desc">Classic first output &mdash; blink, fade, and sequence lights.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🔩</div>
+        <img src="images/resistors.jpeg" alt="Resistors" class="comp-img" />
         <div class="comp-name">Resistors</div>
         <div class="comp-desc">Limit current to keep your components safe and working.</div>
       </div>
@@ -403,7 +412,7 @@
         <div class="comp-desc">Detect light levels &mdash; great for automatic lamp projects.</div>
       </div>
       <div class="comp-item">
-        <div class="comp-icon">🔘</div>
+        <img src="images/pushButtons.jpeg" alt="Pushbuttons" class="comp-img" />
         <div class="comp-name">Pushbuttons</div>
         <div class="comp-desc">Add physical input to your circuits and programs.</div>
       </div>
