@@ -1,71 +1,458 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Arduino Uno Starter Kit</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arduino Uno Starter Kit – TechnoIno</title>
+<meta name="description" content="Affordable Arduino Uno Starter Kit for beginners. Get yours from RM 40. Order via WhatsApp – fast delivery in Malaysia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --orange: #E85D04;
+    --orange-dim: rgba(232, 93, 4, 0.12);
+    --orange-border: rgba(232, 93, 4, 0.3);
+    --dark: #0D0D0D;
+    --mid: #1A1A1A;
+    --surface: #242424;
+    --surface-hover: #2c2c2c;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #F0EDE8;
+    --text-dim: #9B9690;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    color: var(--orange);
+    text-decoration: none;
+  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul li a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  nav ul li a:hover { color: var(--text); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .section-desc {
+    color: var(--text-dim);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    max-width: 520px;
+  }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    background: var(--orange-dim);
+    border: 1px solid var(--orange-border);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 440px;
+    font-weight: 300;
+  }
+  .price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .price-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+  }
+  .price-amount {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .price-note { font-size: 0.78rem; color: var(--text-dim); }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--orange);
+    color: #fff;
+    padding: 0.85rem 1.8rem;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: #c94f03; transform: translateY(-1px); }
+
+  /* ── HERO IMAGE ── */
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-img-wrap {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9);
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(13, 13, 13, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .hero-badge strong {
+    display: block;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  /* ── COMPONENTS ── */
+  #included {
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .comp-item {
+    background: var(--surface);
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background 0.2s;
+  }
+  .comp-item:hover { background: var(--surface-hover); }
+  .comp-icon { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  .comp-name { font-weight: 500; font-size: 0.9rem; letter-spacing: 0.01em; }
+  .comp-desc { font-size: 0.78rem; color: var(--text-dim); font-weight: 300; line-height: 1.5; }
+
+  /* ── WHY ── */
+  #why { max-width: 1100px; margin: 0 auto; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .why-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    background: var(--mid);
+    transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: rgba(255,255,255,0.18); }
+  .why-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+  .why-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .why-body { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; font-weight: 300; }
+
+  /* ── CTA ── */
+  #contact {
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; }
+  .cta-inner h2 { margin-bottom: 1rem; }
+  .cta-inner p { color: var(--text-dim); font-size: 1rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+  .cta-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+  }
+  footer span { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #home {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 3rem;
+    }
+    .hero-visual { display: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    nav ul { gap: 1.2rem; }
+    nav { padding: 1rem 1.5rem; }
+    section { padding: 3.5rem 1.5rem; }
+    .components-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  }
+
+  @media (max-width: 480px) {
+    nav ul { display: none; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
 <body>
 
-  <nav>
-    <div class="logo">TechnoIno</div>
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo">TechnoIno</a>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#included">Kit Contents</a></li>
+    <li><a href="#contact">Order</a></li>
+  </ul>
+</nav>
 
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#included">What's Included</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
-
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Arduino Uno Starter Kit</h1>
-
-<p>
-  Start learning electronics, coding, and robotics
-  with one complete beginner-friendly kit.
-</p>
-
-<p class="price-text">
-  Get yours for as low as <span>RM 40.00</span>
-</p>
-
-<a href="https://wa.me/60124341707" class="button">
-  Order on WhatsApp
-</a>
+<!-- HERO -->
+<section style="padding-left: 2.5rem; padding-right: 2.5rem;">
+  <div id="home">
+    <div class="hero-text">
+      <div class="hero-tag">Starter Kit &middot; Beginner Friendly</div>
+      <h1>Arduino Uno<br><span>Starter Kit</span></h1>
+      <p class="hero-sub">Everything you need to start building electronics, writing code, and making things move &mdash; in one affordable kit.</p>
+      <div class="price-block">
+        <span class="price-label">From</span>
+        <span class="price-amount">RM 40</span>
+        <span class="price-note">&middot; Delivery available</span>
+      </div>
+      <a href="https://wa.me/60124341707" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        💬 Order on WhatsApp
+      </a>
     </div>
-  </section>
-
-  <section id="included" class="included">
-    <div class="included-text">
-      <h2>What’s Included?</h2>
-      <p>
-        Everything you need to start learning electronics and basic Arduino projects.
-      </p>
-
-      <div class="items">
-        <div>Arduino UNO</div>
-        <div>USB Cable</div>
-        <div>Breadboard</div>
-        <div>Jumper Wires</div>
-        <div>9V Battery Snap Connector</div>
-        <div>LEDs</div>
-        <div>Resistors</div>
-        <div>LDR Sensors</div>
-        <div>Pushbuttons</div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="images/kit.jpeg" alt="Arduino Uno Starter Kit components" loading="lazy" />
+        <div class="hero-badge">
+          <strong>Arduino UNO R3</strong>
+          9 components included
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="included-image">
-      <img src="images/kit.jpeg" alt="Arduino Uno Starter Kit components">
+<!-- COMPONENTS -->
+<section id="included">
+  <div class="section-inner">
+    <div class="section-label">What's Inside</div>
+    <h2>Kit Contents</h2>
+    <p class="section-desc">Every component you need to start experimenting and building your first circuits.</p>
+    <div class="components-grid">
+      <div class="comp-item">
+        <div class="comp-icon">🧠</div>
+        <div class="comp-name">Arduino UNO</div>
+        <div class="comp-desc">The main microcontroller board &mdash; your project's brain.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🔌</div>
+        <div class="comp-name">USB Cable</div>
+        <div class="comp-desc">Connect to your laptop to upload code via the Arduino IDE.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🟫</div>
+        <div class="comp-name">Breadboard</div>
+        <div class="comp-desc">Prototype circuits without soldering &mdash; plug and play.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🧵</div>
+        <div class="comp-name">Jumper Wires</div>
+        <div class="comp-desc">Connect components on the breadboard with ease.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🔋</div>
+        <div class="comp-name">9V Battery Snap</div>
+        <div class="comp-desc">Power your project untethered from your PC.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">💡</div>
+        <div class="comp-name">LEDs</div>
+        <div class="comp-desc">Classic first output &mdash; blink, fade, and sequence lights.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🔩</div>
+        <div class="comp-name">Resistors</div>
+        <div class="comp-desc">Limit current to keep your components safe and working.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">☀️</div>
+        <div class="comp-name">LDR Sensors</div>
+        <div class="comp-desc">Detect light levels &mdash; great for automatic lamp projects.</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🔘</div>
+        <div class="comp-name">Pushbuttons</div>
+        <div class="comp-desc">Add physical input to your circuits and programs.</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
+<!-- WHY -->
+<section>
+  <div id="why" class="section-inner">
+    <div class="section-label">Why TechnoIno</div>
+    <h2>Built for Beginners</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-title">Affordable</div>
+        <div class="why-body">Starting from RM 40 &mdash; one of the most accessible Arduino kits available locally in Malaysia.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-title">Complete Kit</div>
+        <div class="why-body">All 9 essential components included. No hunting for parts separately &mdash; just plug in and start learning.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-title">Easy to Order</div>
+        <div class="why-body">Order directly via WhatsApp. Check stock, ask questions, and get delivery sorted &mdash; fast and simple.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="cta-inner">
+    <div class="section-label">Get Yours</div>
     <h2>Ready to Start?</h2>
-    <p>Message us now to check stock, price, and delivery options.</p>
-    <a href="https://wa.me/60124341707" class="button">Contact Us</a>
-  </section>
+    <p>Message us on WhatsApp to check stock, confirm pricing, and arrange delivery. We'll get back to you fast.</p>
+    <a href="https://wa.me/60124341707" class="btn-primary" target="_blank" rel="noopener noreferrer">
+      💬 Chat with Us on WhatsApp
+    </a>
+    <p class="cta-number">+60 12-434 1707</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 <span>TechnoIno</span> &middot; Arduino Starter Kits &middot; Malaysia
+</footer>
 
 </body>
 </html>
