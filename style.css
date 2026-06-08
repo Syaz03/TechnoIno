@@ -1,36 +1,166 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  line-height: 1.6;
-  background: #f5f5f5;
-  color: #222;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #111827;
 }
 
-.hero {
-  background: #111;
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 60px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+}
+
+.logo {
   color: white;
-  padding: 80px 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hero section */
+.hero {
+  min-height: 70vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("images/arduino-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
+  color: white;
+  padding: 100px 20px 60px;
 }
 
-section {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
+.hero-content h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 42px;
+.hero-content p {
+  font-size: 22px;
+  max-width: 750px;
+  margin: 0 auto 30px;
 }
 
+/* Button */
 .button {
   display: inline-block;
-  background: #008cff;
+  background: #0066ff;
   color: white;
-  padding: 12px 22px;
-  border-radius: 8px;
+  padding: 16px 28px;
+  border-radius: 12px;
   text-decoration: none;
-  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Included section */
+.included {
+  max-width: 1200px;
+  margin: -50px auto 40px;
+  padding: 50px;
+
+  background: white;
+  border-radius: 24px;
+
+  display: flex;
+  gap: 50px;
+  align-items: center;
+
+  position: relative;
+}
+
+.included-text {
+  flex: 1;
+}
+
+.small-title {
+  color: #0066ff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.included h2 {
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.included-text p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.items div {
+  background: #eef4ff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.included-image {
+  flex: 1;
+}
+
+.included-image img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+/* Contact section */
+.contact {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 18px;
 }
