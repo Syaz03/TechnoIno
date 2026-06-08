@@ -105,13 +105,6 @@ nav a {
   flex: 1;
 }
 
-.small-title {
-  color: #0066ff;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 14px;
-}
-
 .included h2 {
   font-size: 38px;
   margin: 10px 0;
